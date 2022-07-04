@@ -34,6 +34,7 @@ def main():
             index = cus[cus["Customer mail"]== id].index.values
             distances, indices = model.kneighbors(cus.iloc[index,:].values.reshape(1,-1),n_neighbors = 6)
             prod,reco = recom(distances, indices, index)
+            print(f"{prod},{reco}")
             st.write(f"Hi {id[:13]}, you are using this product currently: '{prod}'")
             st.write("Please consider adding the below mentioned products too!!")
             c1,c2,c3,c4,c5 = st.columns(5)
