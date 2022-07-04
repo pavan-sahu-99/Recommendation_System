@@ -12,6 +12,7 @@ model = NearestNeighbors(metric = 'cosine', algorithm = 'brute')
 model.fit(mat)
 
 def recom(distances, indices, index):
+    prod = None
     reco = []
     for i in range(0,len(distances.flatten())):
         if i == 0:
