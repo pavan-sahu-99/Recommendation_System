@@ -5,7 +5,7 @@ import pickle
 from sklearn.neighbors import NearestNeighbors
 from scipy.sparse import csr_matrix
 
-cus = pd.read_csv(r"bank_product_recom.csv")
+cus = pickle.load(open("bank_produt_recom.pkl","rb"))
 feature = cus.pivot_table(index = 'Cust_Products',columns = 'Customer Id',values = 'cust_rating').fillna(0)
 mat = csr_matrix(feature.values)
 model = NearestNeighbors(metric = 'cosine', algorithm = 'brute')
